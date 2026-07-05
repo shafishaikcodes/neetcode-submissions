@@ -1,0 +1,14 @@
+from collections import defaultdict
+class Solution:
+    def isAnagram(self, s: str, t: str) -> bool:
+        if len(s) != len(t):
+            return False
+        d = defaultdict(int)
+        for char in s:
+            d[char] += 1
+        for char in t:
+            if d[char] < 1:
+                return False
+            d[char] -= 1
+        return True
+        
